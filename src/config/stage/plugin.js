@@ -1,9 +1,3 @@
-/*
- * @Description:
- * @Author: Jamboy
- * @Date: 2021-06-05 11:45:02
- * @LastEditTime: 2021-07-27 16:40:21
- */
 // 本文件是自动生成, 请勿修改
 import chart from '@/plugin/chart/stage-config'
 import custom from '@/plugin/custom/stage-config'
