@@ -2,7 +2,7 @@
  * @Description: banner详情页面
  * @Author: Jamboy
  * @Date: 2021-08-11 16:37:55
- * @LastEditTime: 2021-08-14 13:44:36
+ * @LastEditTime: 2021-08-16 09:31:19
 -->
 
 <template>
@@ -13,18 +13,18 @@
     </div>
     <el-divider />
     <el-form :model="form" label-width="100px">
-      <el-form-item label="名称" >
+      <el-form-item label="名称">
         <el-input v-model="form.name" placeholder="请输入内容"></el-input>
       </el-form-item>
       <el-form-item label="标题">
         <el-input v-model="form.title" placeholder="请输入内容"></el-input>
       </el-form-item>
       <el-form-item label="主图"> </el-form-item>
-      <el-form-item  label="描述">
+      <el-form-item label="描述">
         <el-input v-model="form.description" placeholder="请输入内容" type="textarea" size="medium"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary">保存</el-button>
+        <el-button @click="onSubmit" type="primary">保存</el-button>
         <el-button type="normal" plain>重置</el-button>
       </el-form-item>
     </el-form>
@@ -87,6 +87,10 @@ export default {
   methods: {
     onGoBack() {
       this.$emit('detail-close')
+    },
+
+    onSubmit() {
+      console.log('onSubmit: ', this.form)
     }
   }
 }
