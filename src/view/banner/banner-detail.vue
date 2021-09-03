@@ -2,7 +2,7 @@
  * @Description: banner详情页面
  * @Author: Jamboy
  * @Date: 2021-08-11 16:37:55
- * @LastEditTime: 2021-08-16 09:31:19
+ * @LastEditTime: 2021-09-03 10:26:54
 -->
 
 <template>
@@ -47,16 +47,15 @@
           </template>
         </el-table-column>
         <el-table-column prop="name" label="名称" width="180"> </el-table-column>
-        <el-table-column :show-overflow-tooltip="true" prop="description" label="描述"> </el-table-column>
+        <el-table-column :show-overflow-tooltip="true" prop="keyword" label="关键字"> </el-table-column>
         <el-table-column prop="col" label="操作" width="180">
           <template v-slot="{ row: { id } }">
-            <el-button @click="handleDetail(id)" type="primary" plain size="mini">查看</el-button>
+            <el-button @click="handleDetail(id)" type="primary" plain size="mini">编辑</el-button>
             <el-button type="danger" plain size="mini">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
     </div>
-    <!-- <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop> -->
   </div>
 </template>
 
@@ -81,6 +80,7 @@ export default {
     console.log('created', this.bannerId)
     const detail = await Banner.getDetail(this.bannerId)
     this.form = detail
+    this.bannerList = detail.items
     console.log('detail: ', detail)
   },
 
@@ -91,6 +91,13 @@ export default {
 
     onSubmit() {
       console.log('onSubmit: ', this.form)
+    },
+
+    handleDetail(id) {
+      console.log('i: ', id)
+      const detail = this.bannerList.find(item => item.id === id)
+      console.log('item: ', detail)
+      this.$emit('detail-edit', detail)
     }
   }
 }
