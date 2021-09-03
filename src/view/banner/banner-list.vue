@@ -2,7 +2,7 @@
  * @Description: banner列表
  * @Author: Jamboy
  * @Date: 2021-07-27 16:36:21
- * @LastEditTime: 2021-08-14 10:50:29
+ * @LastEditTime: 2021-09-03 10:29:12
 -->
 <template>
   <div v-if="!showDetail" class="container">
@@ -26,23 +26,27 @@
       </el-table>
     </div>
   </div>
-  <BannerDetail @detail-close="onCloseDetail" :banner-id="bannerDetailId" v-else />
+  <BannerEdit v-else-if="showEdit" @detail-close="onCloseDetail" :item="bannerEditItem" />
+  <BannerDetail v-else @detail-close="onCloseDetail" @detail-edit="onEditDetail" :banner-id="bannerDetailId" />
 </template>
 
 <script>
 import Banner from '../../model/banner'
 import BannerDetail from './banner-detail'
+import BannerEdit from './banner-edit'
 
 export default ({
   components: {
-    BannerDetail
+    BannerDetail,
+    BannerEdit
   },
 
   data() {
     return {
       bannerList: [],
       showDetail: false,
-      bannerDetailId: -1
+      bannerDetailId: -1,
+      showEdit: false,
     }
   },
 
@@ -64,7 +68,13 @@ export default ({
 
     onCloseDetail() {
       this.showDetail = false
-    }
+    },
+
+    onEditDetail(e) {
+      this.showEdit = true
+      this.bannerEditItem = e
+      console.log('onEditDetail: ', e)
+    },
   },
 
 })

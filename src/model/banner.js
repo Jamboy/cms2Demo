@@ -2,7 +2,7 @@
  * @Description: banner model
  * @Author: Jamboy
  * @Date: 2021-07-27 17:27:10
- * @LastEditTime: 2021-08-14 14:29:01
+ * @LastEditTime: 2021-09-03 10:58:32
  */
 import { get } from '../lin/plugin/axios'
 
