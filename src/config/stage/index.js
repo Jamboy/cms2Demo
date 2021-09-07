@@ -1,6 +1,8 @@
 import adminConfig from './admin'
-import bookConfig from './book' // 引入图书管理路由文件
+// import bookConfig from './book' // 引入图书管理路由文件
 import bannerConfig from './banner'
+import categoryConfig from './category'
+import gridManagerConfig from './grid-manager'
 
 import pluginsConfig from './plugin'
 import Utils from '@/lin/util/util'
@@ -46,9 +48,11 @@ let homeRouter = [
     inNav: false,
     icon: 'iconfont icon-rizhiguanli',
   },
-  bookConfig,
+  // bookConfig,
   adminConfig,
-  bannerConfig
+  bannerConfig,
+  categoryConfig,
+  gridManagerConfig
 ]
 
 const plugins = [...pluginsConfig]
