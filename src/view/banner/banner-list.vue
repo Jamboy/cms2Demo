@@ -2,7 +2,7 @@
  * @Description: banner列表
  * @Author: Jamboy
  * @Date: 2021-07-27 16:36:21
- * @LastEditTime: 2021-09-03 10:29:12
+ * @LastEditTime: 2021-09-07 09:14:51
 -->
 <template>
   <div v-if="!showDetail" class="container">
@@ -26,19 +26,16 @@
       </el-table>
     </div>
   </div>
-  <BannerEdit v-else-if="showEdit" @detail-close="onCloseDetail" :item="bannerEditItem" />
   <BannerDetail v-else @detail-close="onCloseDetail" @detail-edit="onEditDetail" :banner-id="bannerDetailId" />
 </template>
 
 <script>
 import Banner from '../../model/banner'
 import BannerDetail from './banner-detail'
-import BannerEdit from './banner-edit'
 
 export default ({
   components: {
     BannerDetail,
-    BannerEdit
   },
 
   data() {

@@ -2,7 +2,7 @@
  * @Description:
  * @Author: Jamboy
  * @Date: 2021-07-27 16:27:44
- * @LastEditTime: 2021-07-27 17:26:29
+ * @LastEditTime: 2021-09-07 09:29:10
  */
 
 const bannerRoute = {
@@ -28,8 +28,8 @@ const bannerRoute = {
       title: '创建banner',
       type: 'view',
       name: 'BookCreate',
-      route: '/book/list',
-      filePath: 'view/book/book-list.vue',
+      route: '/banner/create',
+      filePath: 'view/banner/banner-create.vue',
       inNav: true,
       icon: 'iconfont icon-tushuguanli',
     },
